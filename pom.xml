@@ -11,6 +11,7 @@
 	<groupId>edu.supavenir</groupId>
 	<artifactId>td0</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<packaging>war</packaging>
 	<name>td0</name>
 	<description>Gestion d&apos;items</description>
 	<properties>
