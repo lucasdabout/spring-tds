@@ -21,7 +21,7 @@ public class ItemsController {
 		return new ArrayList<>();
 	}
 
-	@GetMapping("/items")
+	@GetMapping("/")
 	public String itemsAction() {
 		return "items";
 	}
@@ -30,7 +30,9 @@ public class ItemsController {
 	public RedirectView add(@SessionAttribute List<Element> items) {
 		Element elm = new Element();
 		elm.setNom("bop");
-		items.add(elm);
-		return new RedirectView("/td0/items");
+		if (!items.contains(elm)) {
+			items.add(elm);
+		}
+		return new RedirectView("/");
 	}
 }
