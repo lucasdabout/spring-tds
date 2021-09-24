@@ -20,6 +20,11 @@ import edu.supavenir.td0.technics.CssMessage;
 @SessionAttributes("items")
 public class ItemsController {
 
+	private Element getElementByName(String nom, List<Element> items) {
+		int index = items.indexOf(new Element(nom));
+		return items.get(index);
+	}
+
 	@ModelAttribute("items")
 	public List<Element> getItems() {
 		return new ArrayList<>();
@@ -48,17 +53,13 @@ public class ItemsController {
 
 	@GetMapping("/items/inc/{nom}")
 	public RedirectView incAction(@PathVariable String nom, @SessionAttribute List<Element> items) {
-		int index = items.indexOf(new Element(nom));
-		Element elm = items.get(index);
-		elm.inc();
+		getElementByName(nom, items).inc();
 		return new RedirectView("/");
 	}
 
 	@GetMapping("/items/dec/{nom}")
 	public RedirectView decAction(@PathVariable String nom, @SessionAttribute List<Element> items) {
-		int index = items.indexOf(new Element(nom));
-		Element elm = items.get(index);
-		elm.dec();
+		getElementByName(nom, items).dec();
 		return new RedirectView("/");
 	}
 }
