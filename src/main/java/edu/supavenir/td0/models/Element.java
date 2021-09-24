@@ -27,4 +27,24 @@ public class Element {
 		}
 		return ((Element) obj).getNom().equals(this.nom);
 	}
+
+	@Override
+	public String toString() {
+		return "Element [nom=" + nom + "]";
+	}
+
+	public Element(String nom) {
+		this.nom = nom;
+	}
+
+	public Element() {
+	}
+
+	public void inc() {
+		this.evaluation++;
+	}
+
+	public void dec() {
+		this.evaluation--;
+	}
 }
