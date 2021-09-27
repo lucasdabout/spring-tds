@@ -62,4 +62,12 @@ public class ItemsController {
 		getElementByName(nom, items).dec();
 		return new RedirectView("/");
 	}
+
+	@GetMapping("/items/delete/{nom}")
+	public RedirectView deleteAction(@PathVariable String nom, @SessionAttribute List<Element> items,
+			RedirectAttributes attrs) {
+		items.remove(new Element(nom));
+		attrs.addFlashAttribute("msg", CssMessage.SuccessMessage("L'Element <b>" + nom + "</b> a été supprimé."));
+		return new RedirectView("/");
+	}
 }
