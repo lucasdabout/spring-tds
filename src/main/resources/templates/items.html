@@ -8,12 +8,11 @@
 	<div class="ui bottom attached tab segment" data-tab="{{nom}}">
 	<h1>Eléments</h1>
 	<a class="ui button" href="/items/new/{{nom}}">Ajouter...</a>
-	
 	<ul>
 	{{#items}}
 		<li>{{nom}} <div class="ui yellow rating" data-icon="star" data-max-rating="10" data-rating="{{evaluation}}"></div> 
-			<a href="items/inc/{{nom}}"><i class="ui angle up green icon"></i></a> 
-			<a href="items/dec/{{nom}}"><i class="ui angle down red icon"></i></a>
+			<a href="items/inc/{{.}}/{{nom}}"><i class="ui angle up green icon"></i></a> 
+			<a href="items/dec/{{.}}/{{nom}}"><i class="ui angle down red icon"></i></a>
 			<a href="items/delete/{{nom}}" class="ui icon mini circular basic button"><i class="ui remove red icon"></i></a>
 		</li>
 	{{/items}}

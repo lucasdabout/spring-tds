@@ -62,14 +62,16 @@ public class ItemsController {
     }
 
     @GetMapping("/items/inc/{nom}/{categorie}")
-    public RedirectView incAction(@PathVariable String nom, @SessionAttribute List<Element> items) {
-	// getElementByName(nom, items).inc();
+    public RedirectView incAction(@PathVariable String nom, @PathVariable String categorie,
+	    @SessionAttribute List<Element> categories) {
+	getCategorieByName(categorie, categories).getElementByname(nom).inc();
 	return new RedirectView("/");
     }
 
     @GetMapping("/items/dec/{nom}/{categorie}")
-    public RedirectView decAction(@PathVariable String nom, @SessionAttribute List<Element> items) {
-	// getElementByName(nom, items).dec();
+    public RedirectView decAction(@PathVariable String nom, @PathVariable String categorie,
+	    @SessionAttribute List<Element> categories) {
+	getCategorieByName(categorie, categories).getElementByname(nom).inc();
 	return new RedirectView("/");
     }
 

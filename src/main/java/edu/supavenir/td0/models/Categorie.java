@@ -40,6 +40,13 @@ public class Categorie {
 	return false;
     }
 
+    public boolean deleteItem(Element elm) {
+	if (items.contains(elm)) {
+	    return items.remove(elm);
+	}
+	return false;
+    }
+
     @Override
     public boolean equals(Object obj) {
 	if (!(obj instanceof Categorie)) {
