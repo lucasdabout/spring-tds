@@ -1,14 +1,26 @@
 {{> /inc/header}}
-<h1>Eléments</h1>
-<a class="ui button" href="/items/new">Ajouter...</a>
-<ul>
-{{#items}}
-	<li>{{nom}} <div class="ui yellow rating" data-icon="star" data-max-rating="10" data-rating="{{evaluation}}"></div> 
-		<a href="items/inc/{{nom}}"><i class="ui angle up green icon"></i></a> 
-		<a href="items/dec/{{nom}}"><i class="ui angle down red icon"></i></a>
-	</li>
-{{/items}}
-</ul>
+<div class="ui top attached tabular menu _categories">
+	{{#categories}}
+  		<a class="item" data-tab="{{nom}}">{{nom}}</a>
+  	{{/categories}}
+</div>
+	{{#categories}}
+	<div class="ui bottom attached tab segment" data-tab="{{nom}}">
+	<h1>Eléments</h1>
+	<a class="ui button" href="/items/new/{{nom}}">Ajouter...</a>
+	
+	<ul>
+	{{#items}}
+		<li>{{nom}} <div class="ui yellow rating" data-icon="star" data-max-rating="10" data-rating="{{evaluation}}"></div> 
+			<a href="items/inc/{{nom}}"><i class="ui angle up green icon"></i></a> 
+			<a href="items/dec/{{nom}}"><i class="ui angle down red icon"></i></a>
+			<a href="items/delete/{{nom}}" class="ui icon mini circular basic button"><i class="ui remove red icon"></i></a>
+		</li>
+	{{/items}}
+	</ul>
+	</div>
+	{{/categories}}
+
 {{#msg}}
 	<div class="ui icon {{type}} message">
 	  <i class="{{icon}} icon"></i>
